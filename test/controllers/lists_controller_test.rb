@@ -1,14 +1,11 @@
 require 'test_helper'
 
 class ListsControllerTest < ActionController::TestCase
+
+  
   setup do
     @list = lists(:one)
-  end
-
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:lists)
+    sign_in @list.user
   end
 
   test "should get new" do
@@ -44,6 +41,6 @@ class ListsControllerTest < ActionController::TestCase
       delete :destroy, id: @list
     end
 
-    assert_redirected_to lists_path
+    assert_redirected_to new_list_path
   end
 end

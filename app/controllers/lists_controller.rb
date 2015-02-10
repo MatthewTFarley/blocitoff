@@ -1,15 +1,17 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_list, only: [:edit, :update, :destroy]
 
   respond_to :html
 
-  def index
-    @lists = List.all
-    respond_with(@lists)
-  end
-
   def show
-    respond_with(@list)
+    @list = current_user.list
+    if @list != nil && params[:id] == @list.id.to_s
+       respond_with(@list)
+    else
+      flash[:notice] = "The list requested does not match the current user."
+      redirect_to @list || new_list_path
+    end
   end
 
   def new
@@ -18,22 +20,44 @@ class ListsController < ApplicationController
   end
 
   def edit
+    if @list != nil && @list == current_user.list
+       respond_with(@list)
+    else
+      flash[:notice] = "The list requested does not match the current user."
+      redirect_to @list || new_list_path
+    end
   end
 
   def create
+    @user = current_user
     @list = List.new(list_params)
-    @list.save
-    respond_with(@list)
+    @list.user = @user
+    if @list.save!
+      flash[:message] = "New list created!"
+      respond_with(@list)
+    else
+      flash[:error] = "There was an error. Please try again."
+      redirect_to new_list_path
+    end
   end
 
   def update
-    @list.update(list_params)
-    respond_with(@list)
+    if @list.update(list_params)
+      flash[:notice] = "List was successfully updated."
+      respond_with(@list)
+    else
+      flash[:error] = "List was not successfully updated. Try Again."
+    end
   end
 
   def destroy
-    @list.destroy
-    respond_with(@list)
+    if @list.destroy
+      flash[:notice] = "List successfully deleted."
+      redirect_to new_list_path
+    else
+      flash[:error] = "The list was not successfully deleted. Try again."
+      respond_with(@list)
+    end
   end
 
   private
