@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+//= require_tree .
+
 
 .user-info {
   margin-top: 9px;
@@ -8,14 +10,35 @@
 .nav {
   margin-top: 5px;
 }
-.list-name {
-  margin-top: 50px;
+.list {
+  border: 2px solid #333333;
+  padding: 0px 10px 10px 10px;
+  margin: 10px auto 10px auto;
   text-align: center;
+  display: inline-block;
+}
+.list-name {
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
 }
 .edit-delete-buttons {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .actions {
   margin-top: 10px;
+}
+.new_task {
+  text-align: center;
+  margin-top: 20px;
+}
+.task {
+  text-align: center;
+  border-bottom: 1px solid gray;
+}
+.list-wrapper {
+  margin: 10px auto 10px auto;
+  text-align: center;
 }

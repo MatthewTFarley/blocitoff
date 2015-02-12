@@ -1,11 +1,13 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_list, only: [:edit, :update, :destroy]
-
+  
   respond_to :html
 
   def show
     @list = current_user.list
+    @tasks = @list.tasks
+    
     if @list != nil && params[:id] == @list.id.to_s
        respond_with(@list)
     else
@@ -61,6 +63,7 @@ class ListsController < ApplicationController
   end
 
   private
+  
     def set_list
       @list = List.find(params[:id])
     end
