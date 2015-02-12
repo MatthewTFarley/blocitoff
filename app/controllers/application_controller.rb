@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   def after_sign_in_path_for(resource)
-    current_user.list
+    if current_user.list
+      current_user.list
+    else
+      new_list_path
+    end
   end
   
   protected
