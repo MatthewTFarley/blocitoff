@@ -6,10 +6,11 @@ class ListsController < ApplicationController
 
   def show
     @list = current_user.list
-    @tasks = @list.tasks
+    @tasks = nil
     
     if @list != nil && params[:id] == @list.id.to_s
-       respond_with(@list)
+      @tasks = @list.tasks
+      respond_with(@list)
     else
       flash[:notice] = "The list requested does not match the current user."
       redirect_to @list || new_list_path

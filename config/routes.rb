@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update]
   
   resources :lists, except: [:index] do
-    resources :tasks, only: [:create, :destroy]
+    resources :tasks, only: [:create, :destroy], shallow: true
   end
 
   devise_scope :user do

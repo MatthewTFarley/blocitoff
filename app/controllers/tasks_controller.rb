@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
   
   def create
     @list = current_user.list
@@ -15,15 +15,20 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task = Task.find(params[:id])
+    task_description = @task.description
+    @list = @task.list
+    
     if @task.destroy
-      flash[:notice] = "The task successfully deleted."
-      respond_with(@list)
+      flash[:notice] = "'#{task_description}' complete!"
     else
-      flash[:error] = "The task was not successfully deleted. Try again."
-      respond_with(@list)
+      flash[:error] = "There was an error. Try again."
+    end
+    
+    respond_with(@task) do |format|
+      format.html { redirect_to @list }
     end
   end
-  
   
   private
   

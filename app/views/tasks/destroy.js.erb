@@ -1,0 +1,7 @@
+<% if @task.destroyed? %>
+  $('#task-' +<%= @task.id %>).fadeOut(function(){
+    $('#task-' +<%= @task.id %>).remove();
+  });
+<% else %>
+  $('#task-' +<%= @task.id %>).prepend("<div class='alert alert-danger'>There was an error deleting the task.</div>");
+<% end %>

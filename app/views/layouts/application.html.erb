@@ -12,6 +12,8 @@
         <li><%= link_to "Blocitoff", root_path %></li>
         <% if current_user && current_user.list %>
           <li><%= link_to "My List", current_user.list %></li>
+        <% else %>
+          <li><%= link_to "New List", new_list_path %></li>
         <% end %>
         <li><%= link_to "About", about_path %></li>
         
