@@ -5,9 +5,13 @@
     <% else %>
       <h1 class="list-name"><%= @list.name %></h1>
       <ul class="list-group">
+        <div class="js-tasks">
         <%= render partial: 'tasks/task', collection: @tasks %>
+        </div>
       </ul>
-      <%= render partial: 'tasks/form', list: @list, task: @task %>
+      <div class="new-task">
+        <%= render partial: 'tasks/form', list: @list, task: @task %>
+      </div>
       <div class="edit-delete-buttons">
         <%= link_to "Edit List", edit_list_path(@list), class: 'btn btn-success' %>
         <%= link_to "Delete List", list_path, method: :delete, class: 'btn btn-danger',

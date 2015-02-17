@@ -5,12 +5,14 @@ class TasksController < ApplicationController
     @list = current_user.list
     @task = Task.new(task_params)
     @task.list = @list
+    @new_task = Task.new
 
-    if @task.save
-      redirect_to @list
-    else
-      flash[:error] = "There was an error saving the Task. Please try again."
-      render :new
+    if !@task.save
+      flash[:error] = "There was an error saving the task. Please try again."
+    end
+    
+    respond_with(@task) do |format|
+      format.html { redirect_to @list }
     end
   end
 
@@ -19,9 +21,7 @@ class TasksController < ApplicationController
     task_description = @task.description
     @list = @task.list
     
-    if @task.destroy
-      flash[:notice] = "'#{task_description}' complete!"
-    else
+    if !@task.destroy
       flash[:error] = "There was an error. Try again."
     end
     
