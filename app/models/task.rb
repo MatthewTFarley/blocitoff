@@ -7,4 +7,8 @@ class Task < ActiveRecord::Base
   def days_left
     [7 - (DateTime.now.to_date - created_at.to_date).to_i, 0].max
   end
+  
+  def to_s
+    description
+  end
 end

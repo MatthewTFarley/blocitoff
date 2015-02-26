@@ -1,3 +1,15 @@
-<li class="list-group-item" id="task-<%= task.id %>">
-  <%= task.description %><span class="badge"><%= link_to "", task, method: :delete, class: 'glyphicon glyphicon-ok', remote: true %></span>
-<span class="badge">Time left: <%= task.days_left %> days</span></li>
+<div class="row well" id="task-<%= task.id %>">
+  <div class="col-md-12 col-sm-6 col-xs-3">
+    <div class="pull-left">
+      <span class="badge" id="unchecked"><%= link_to "", task,
+        method: :delete, class: 'glyphicon glyphicon-unchecked', remote: true %></span>
+    </div>
+    <div class="col-md-5 col-md-offset-3" id="task">
+      <%= task.description %>
+    </div>
+    <div class="pull-right">
+      <span class="badge" id="<%= task.days_left < 2 ? 'one-day-remaining' : 'days-remaining' %>">
+        <%= pluralize(task.days_left, 'day') %> left</span>
+    </div>
+  </div>
+</div>

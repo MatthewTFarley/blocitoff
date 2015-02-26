@@ -27,6 +27,7 @@ class TasksController < ApplicationController
     
     respond_with(@task) do |format|
       format.html { redirect_to @list }
+      format.js
     end
   end
   

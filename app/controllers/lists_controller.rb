@@ -12,7 +12,6 @@ class ListsController < ApplicationController
       @tasks = @list.tasks
       respond_with(@list)
     else
-      flash[:notice] = "The list requested does not match the current user."
       redirect_to @list || new_list_path
     end
   end
@@ -26,7 +25,6 @@ class ListsController < ApplicationController
     if @list != nil && @list == current_user.list
        respond_with(@list)
     else
-      flash[:notice] = "The list requested does not match the current user."
       redirect_to @list || new_list_path
     end
   end

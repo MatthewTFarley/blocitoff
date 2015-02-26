@@ -1,22 +1,18 @@
-<div class="list-wrapper">
-  <div class="list">
-    <% if @list.nil? %>
-      <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
-    <% else %>
-      <h1 class="list-name"><%= @list.name %></h1>
-      <ul class="list-group">
-        <div class="js-tasks">
-        <%= render partial: 'tasks/task', collection: @tasks %>
+<div class="container-fluid" id="list-container-fluid">
+    <div class="col-md-6 col-md-offset-3 col-sm-4 col-sm-offset-2 well" id="list">
+      <% if @list.nil? %>
+        <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
+      <% else %>
+        <h1 class="list-name"><%= @list.name %></h1>
+          <div class="js-tasks">
+          <%= render partial: 'tasks/task', collection: @tasks %>
+          </div>
+        <div class="new-task">
+          <%= render partial: 'tasks/form', list: @list, task: @task %>
         </div>
-      </ul>
-      <div class="new-task">
-        <%= render partial: 'tasks/form', list: @list, task: @task %>
-      </div>
-      <div class="edit-delete-buttons">
-        <%= link_to "Edit List", edit_list_path(@list), class: 'btn btn-success' %>
-        <%= link_to "Delete List", list_path, method: :delete, class: 'btn btn-danger',
-                    data: { confirm: 'Are you sure you want to delete this list?' } %>
-      </div>
-    <% end %>
+        <div class="edit-delete-buttons">
+          <%= link_to "Edit List", edit_list_path(@list), class: 'btn btn-primary' %>
+        </div>
+      <% end %>
   </div>
 </div>

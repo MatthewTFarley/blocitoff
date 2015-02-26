@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class ListsControllerTest < ActionController::TestCase
-
-  
   setup do
     @list = lists(:one)
     sign_in @list.user
@@ -34,13 +32,5 @@ class ListsControllerTest < ActionController::TestCase
   test "should update list" do
     patch :update, id: @list, list: { name: @list.name, user_id: @list.user_id }
     assert_redirected_to list_path(assigns(:list))
-  end
-
-  test "should destroy list" do
-    assert_difference('List.count', -1) do
-      delete :destroy, id: @list
-    end
-
-    assert_redirected_to new_list_path
   end
 end
