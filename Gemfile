@@ -24,3 +24,4 @@ gem 'figaro', '1.0'
 gem 'pry-rails'
 gem 'faker'
 gem 'whenever', :require => false
+gem 'best_in_place', '~> 3.0.1'

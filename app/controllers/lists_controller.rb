@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_list, only: [:edit, :update, :destroy]
   
-  respond_to :html
+  respond_to :html, :json
 
   def show
     @list = current_user.list
@@ -44,9 +44,9 @@ class ListsController < ApplicationController
 
   def update
     if @list.update(list_params)
-      flash[:notice] = "List was successfully updated."
       respond_with(@list)
     else
+      format.json { respond_with_bip(@user) }
       flash[:error] = "List was not successfully updated. Try Again."
     end
   end

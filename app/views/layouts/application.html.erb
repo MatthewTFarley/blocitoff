@@ -4,11 +4,12 @@
     <title>Blocitoff</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <div class="container-fluid" id="page-container-fluid">
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" id="font-1">
           <li><%= link_to "Blocitoff", root_path, class: "navbar-brand" %></li>
           <% if current_user && current_user.list %>
           <li><%= link_to "My List", current_user.list, class: "navbar-element" %></li>
@@ -28,8 +29,8 @@
                  <span class="glyphicon glyphicon-log-out"></span>
                <% end %>
              <% else %>
-               <%= link_to "Sign In", new_user_session_path %> or 
-               <%= link_to "Sign Up", new_user_registration_path %>
+             <%= link_to "Sign In", new_user_session_path, id: "sign-in-link" %> | 
+             <%= link_to "Sign Up", new_user_registration_path, id: "sign-up-link" %>
              <% end %>
            </div>
         </ul>
@@ -50,8 +51,13 @@
             <%= flash[:alert] %>
           </div>
         <% end %>
-
+    </div>
+    <div class="row" id="content-row">
+      <div class="container" id="content-container">
+        <div class="col-md-8 col-md-offset-2 well" id="content-well">
         <%= yield %>
+        </div>
       </div>
+    </div>
   </body>
 </html>

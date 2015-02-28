@@ -32,6 +32,9 @@ GEM
       execjs
       json
     bcrypt (3.1.9)
+    best_in_place (3.0.3)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -149,6 +152,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  best_in_place (~> 3.0.1)
   bootstrap-sass (~> 3.3.3)
   coffee-rails (~> 4.0.0)
   devise
