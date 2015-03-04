@@ -1,15 +1,25 @@
-<div class="row well row-well" id="task-<%= task.id %>">
-  <div class="col-md-12 col-sm-6 col-xs-3">
-    <div class="pull-left">
-      <span class="badge" id="unchecked"><%= link_to "", task,
-        method: :delete, class: 'glyphicon glyphicon-unchecked', remote: true %></span>
-    </div>
-    <div class="col-md-5 col-md-offset-3" id="task">
-      <%= task.description %>
-    </div>
-    <div class="pull-right">
-      <span class="badge" id="<%= task.days_left < 2 ? 'one-day-remaining' : 'days-remaining' %>">
-        <%= pluralize(task.days_left, 'day') %> left</span>
+<div class="task-row row" id="task-<%= task.id %>">
+  <div class="col-xs-12">
+    <div class="row">
+      <div class="col-xs-10 col-sm-11" id="task">
+        <div class="row">
+          <div class="col-xs-10 col-sm-11" id="task">
+          <%= best_in_place task, :description, type: :input %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <span class="badge" id="<%= task.days_left < 2 ? 'one-day-remaining' : 'days-remaining' %>">
+              <%= pluralize(task.days_left, 'day') %> left</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-2 col-sm-1">
+        <div class="pull-right">
+          <span class="badge" id="unchecked"><%= link_to "", task,
+            method: :delete, class: 'glyphicon glyphicon-unchecked', remote: true %></span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

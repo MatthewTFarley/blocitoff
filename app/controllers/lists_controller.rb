@@ -33,7 +33,7 @@ class ListsController < ApplicationController
     @user = current_user
     @list = List.new(list_params)
     @list.user = @user
-    if @list.save!
+    if @list.save
       flash[:message] = "New list created!"
       respond_with(@list)
     else

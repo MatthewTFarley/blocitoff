@@ -1,15 +1,19 @@
-<div class="container-fluid" id="list-container-fluid">
-    <div class="col-md-12 col-sm-6 well" id="list">
-      <% if @list.nil? %>
-        <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
-      <% else %>
-      <h1 class="list-name"><%= best_in_place @list, :name %></h1>
-          <div class="js-tasks">
-          <%= render partial: 'tasks/task', collection: @tasks %>
-          </div>
-        <div class="new-task">
-          <%= render partial: 'tasks/form', list: @list, task: @task %>
-        </div>
-      <% end %>
+<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 well" id="list">
+  <% if @list.nil? %>
+    <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
+  <% else %>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="list-name" id="list-name"><%= best_in_place @list, :name, inner_class: "bip-styling" %></h2>
+    </div>
   </div>
+  <div class="js-tasks">
+    <%= render partial: 'tasks/task', collection: @tasks %>
+  </div>
+  <div class="row" id="task-form-row">
+    <div class="new-task">
+      <%= render partial: 'tasks/form', list: @list, task: @task %>
+    </div>
+  </div>
+  <% end %>
 </div>

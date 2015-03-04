@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blocitoff</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -8,55 +9,57 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="container-fluid" id="page-container-fluid">
-        <ul class="nav nav-tabs" id="font-1">
-          <li><%= link_to "Blocitoff", root_path, class: "navbar-brand" %></li>
+    <div class="navbar navbar-default nav-bar-static-top" id="navbar">
+      <div class="container-fluid" id="nav-container">
+        <div class="navbar-header">
+          <%= link_to "Blocitoff", root_path, class: "navbar-brand", id: "brand" %>
+          <button type="button" class="navbar-toggle" id="nav-button"
+                  data-toggle="collapse"
+                  data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar" id="bar"></span>
+            <span class="icon-bar" id="bar"></span>
+            <span class="icon-bar" id="bar"></span>
+          </button>
+        </div>
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse nav-tabs" id="nav-options">
           <% if current_user && current_user.list %>
-          <li><%= link_to "My List", current_user.list, class: "navbar-element" %></li>
+            <li><%= link_to "My List", current_user.list, class: "navbar-element" %></li>
           <% else %>
             <li><%= link_to "New List", new_list_path, class: "navbar-element" %></li>
           <% end %>
-          <li><%= link_to "About", about_path, class: "navbar-element" %></li>
-
-           <div class="pull-right user-info">
-             <% if current_user %>
-                 Hello <%= (current_user.name || current_user.email) %>!
-             <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm', id: "edit-account-icon" do %>
-                  <span class="glyphicon glyphicon-user"></span>
-               <% end %>
-             |
-               <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm', id: "sign-out-icon" do %>
-                 <span class="glyphicon glyphicon-log-out"></span>
-               <% end %>
-             <% else %>
-             <%= link_to "Sign In", new_user_session_path, id: "sign-in-link" %> | 
-             <%= link_to "Sign Up", new_user_registration_path, id: "sign-up-link" %>
-             <% end %>
-           </div>
+            <li><%= link_to "About", about_path, class: "navbar-element" %></li>
+          <% if current_user %>
+            <li><%= link_to "Profile", edit_user_registration_path, class: "navbar-element"  %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "navbar-element" %></li>
+          <% else %>
+            <li><%= link_to "Sign In", new_user_session_path, id: "sign-in-link", class: "navbar-element" %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path, id: "sign-up-link", class: "navbar-element" %></li>
+          <% end %>
         </ul>
-
-        <% if flash[:notice] %>
-          <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <%= flash[:notice] %>
-          </div>
-        <% elsif flash[:error] %>
-          <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <%= flash[:error] %>
-          </div>
-        <% elsif flash[:alert] %>
-          <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <%= flash[:alert] %>
-          </div>
-        <% end %>
+      </div>
     </div>
-    <div class="row" id="content-row">
-      <div class="container" id="content-container">
-        <div class="col-md-8 col-md-offset-2 well" id="content-well">
+    
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:error] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+    
+    <div class="container" id="content-container">
+      <div class="row" id="content-row">
         <%= yield %>
-        </div>
       </div>
     </div>
   </body>

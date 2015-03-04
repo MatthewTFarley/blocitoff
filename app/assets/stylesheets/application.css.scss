@@ -1,9 +1,11 @@
+//= require_tree .
 @import "bootstrap-sprockets";
 @import "bootstrap";
-//= require_tree .
 
 body {
   font-family: "PT Serif";
+  background: #0E74AF;
+  clear: none;
 }
 h1 {
   margin-top: 10px;
@@ -11,35 +13,72 @@ h1 {
 h2 {
   margin-top: 10px;
 }
-.user-info {
-  margin-top: 9px;
+#navbar {
+  background: #0B6294;
+  border: none;
+  margin-bottom: 5px;
 }
-.navbar-brand {
+#nav-options > li > a {
+  border: 0 0 0 0;
   color: white;
+  &:hover {
+    color: #0B6294;
+    background-color: white;
+    border-radius: 0px;
+  }
 }
-#page-container-fluid {
-  background: #0E74AF;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
+.navbar-collapse.in {
+  overflow-y: visible;
+  padding-right: 0px;
+  padding-left: 0px;
 }
-#page-container {
-  background: #0E74AF;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
+.navbar-form { 
+  border: none;
+}
+#brand {
+  color: white;
+  height: 52px;
+  padding-top: 15px;
+  border: none;
+  &:hover {
+    color: #0B6294;
+    background-color: white;
+  }
+}
+.navbar-element > ul {
+  padding-right: 0px;
+  color: white;
+  background-color: #0B6294;
+  &:hover {
+    color: #0B6294;
+    background-color: white;
+    border-radius: 0px;
+  }
+}
+ul.nav-tabs > li > a {
   margin-right: 0px;
+  line-height: 1.42857143;
+  border: none;
+  border-radius: 0px 0px 0px 0px;
+  color: white;
+  background-color: #0B6294;
+    &:hover {
+    color: #0B6294;
+    background-color: white;
+    border-radius: 0px;
+    }
+}
+#content-container {
+  background: #0E74AF;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  width: auto;
 }
 #content-row {
   background: #0E74AF;
 }
-#content-container {
-  background: #0E74AF;
-}
 #content-well {
   margin-top: 15px;
-  background: whitesmoke;
-  padding: 0px 0px 0px 0px;
-}
-#jumbotron-index {
   background: whitesmoke;
 }
 #form-row {
@@ -50,92 +89,16 @@ ul.nav-tabs {
   border-bottom: none;
   color: white;
 }
-.navbar-element {
-  color: white;
-}
-#sign-in-link {
-  color: white;
-}
-#sign-up-link {
-  color: white;
-  margin-right: 10px;
-}
-#edit-account-icon {
-  background: #0B6294;
-  border: none;
-}
-#nested-well {
-  margin-bottom: 0px;
-  border: none;
-}
-#sign-out-icon {
-  background: #0B6294;
-  border: none;
-}
-#list-container-fluid {
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-}
-#list {
-  background: whitesmoke;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: none;
-  -webkit-box-shadow: none;
-}
-.list-name {
-  margin-bottom: 10px;
-  text-align: center;
-  padding-bottom: 10px;
-  color: black;
-}
-#new_task {
-  margin-top: 5px;
-}
-.edit-delete-buttons {
-  text-align: center;
-  margin-top: 20px;
-}
-.actions {
-  margin-top: 10px;
-}
-.new_task {
-  text-align: center;
-  margin-top: 20px;
-}
-#unchecked {
+#nav-button {
   background-color: white;
-  font-size: 1.2em
+  &:hover {
+    border: solid FloralWhite 1px;
+    background-color: FloralWhite;
+  }
 }
-#days-remaining {
-  color: black;
-  background-color: white;
+.row:before {
+  clear: none;
 }
-#one-day-remaining {
-  color: red;
-  background-color: white;
-}
-.row-well {
-  background-color: white;
-  margin-bottom: 5px;
-  font-size: 16px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-#task-form-row {
-  background-color: whitesmoke;
-  margin-bottom: 2px;
-  font-size: 16px;
-}
-#task {
-  border-right: 2px;
-  border-bottom: 2px;
-  border-left: 2px;
-  margin-bottom: 5px;
-  word-wrap: break-word;
-  font-size: 16;
-}
-#task-text-area {
-  margin-bottom: 5px;
-  padding: 0px;
+.row:after{
+  clear: none;
 }

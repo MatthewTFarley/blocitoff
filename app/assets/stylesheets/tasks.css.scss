@@ -1,6 +1,44 @@
-.new_task {
-  text-align: center;
+#unchecked {
+  background-color: white;
+  font-size: 1.2em;
+  padding: 0px 0px 0px 0px;
+  position: relative;
+  top: 50%;
+  transform: translateY(80%);
+  &:hover {
+    background: transparent;
+  }
 }
-.task {
-  text-align: center;
+#days-remaining {
+  color: black;
+  background-color: white;
+}
+#one-day-remaining {
+  color: red;
+  background-color: white;
+}
+.task-row {
+  background-color: white;
+  font-size: 16px;
+  margin: 0px 10px 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  padding: 5px 0px 5px 0px;
+}
+#task {
+  border-right: 2px;
+  border-bottom: 2px;
+  border-left: 2px;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  font-size: 16;
+}
+#task-text-area {
+  margin-bottom: 5px;
+  padding: 0px;
+}
+.best_in_place {
+    &:hover {
+    color: #0E74AF;
+  }
 }

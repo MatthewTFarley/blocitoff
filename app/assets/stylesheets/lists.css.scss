@@ -1,11 +1,37 @@
+#list {
+  background: whitesmoke;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  -webkit-box-shadow: none;
+}
 .list-name {
-  margin-top: 50px;
+  margin-bottom: 10px;
   text-align: center;
+  padding-bottom: 10px;
+  color: black;
 }
-.edit-delete-buttons {
+#task-form-row {
+  margin-bottom: 2px;
+  font-size: 16px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-.actions {
+.best_in_place {
+  &:hover { 
+    color: #0E74AF;
+  }
+}
+.bip-styling {
+  text-align: center;
+  width: 250px;
+}
+.bip-styling::selection {
+  color: white;
+  background: #0E74AF;
+}
+.list-actions {
   margin-top: 10px;
 }

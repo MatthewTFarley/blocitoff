@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  respond_to :html, :js
+  respond_to :html, :js, :json
   
   def create
     @list = current_user.list
@@ -31,10 +31,20 @@ class TasksController < ApplicationController
     end
   end
   
+  def update
+    @task = set_task
+    if @task.update(task_params)
+      respond_with(@task.list)
+    else
+      format.json { respond_with_bip(@user) }
+      flash[:error] = "Task was not successfully updated. Try Again."
+    end
+  end
+  
   private
   
   def set_task
-    @task = Task.find(params[:id])
+    Task.find(params[:id])
   end
   
   def task_params
