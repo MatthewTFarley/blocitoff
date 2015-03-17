@@ -16,3 +16,11 @@
 //= require_tree .
 //= require best_in_place
 
+$('document').ready(function(){
+  function clearFlashes (){
+    $('.alert').fadeOut(function(){
+      $('.alert').remove();
+    });
+  }
+  setTimeout(clearFlashes, 3000);
+});

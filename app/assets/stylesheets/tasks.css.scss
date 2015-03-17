@@ -1,21 +1,24 @@
-#unchecked {
+#checkbox {
   background-color: white;
   font-size: 1.2em;
   padding: 0px 0px 0px 0px;
   position: relative;
   top: 50%;
   transform: translateY(80%);
-  &:hover {
+  a:hover {
     background: transparent;
+    text-decoration: none;
   }
 }
 #days-remaining {
   color: black;
   background-color: white;
+  font-style: italic;
 }
 #one-day-remaining {
   color: red;
   background-color: white;
+  font-style: italic;
 }
 .task-row {
   background-color: white;
@@ -41,4 +44,8 @@
     &:hover {
     color: #0E74AF;
   }
+}
+.bip-task-styling {
+  text-align: left;
+  width: 100%;
 }

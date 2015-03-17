@@ -1,4 +1,5 @@
 <% if @task.destroyed? %>
+  $('#task-' +<%= @task.id %>).find('a').removeClass("glyphicon glyphicon-unchecked").addClass("glyphicon glyphicon-check");
   $('#task-' +<%= @task.id %>).fadeOut(function(){
     $('#task-' +<%= @task.id %>).remove();
   });

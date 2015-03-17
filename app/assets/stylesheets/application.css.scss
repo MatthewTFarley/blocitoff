@@ -16,19 +16,31 @@ h2 {
 #navbar {
   background: #0B6294;
   border: none;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
+}
+#nav-options {
 }
 #nav-options > li > a {
   border: 0 0 0 0;
   color: white;
+  height: 52px;
+  padding: 16px 15px 14px 15px; 
   &:hover {
     color: #0B6294;
     background-color: white;
     border-radius: 0px;
   }
 }
+.navbar-nav {
+  margin: 0px 0px 0px 0px;
+}
 .navbar-collapse.in {
   overflow-y: visible;
+  padding-right: 0px;
+  padding-left: 0px;
+  height: 53px;
+}
+.navbar-collapse {
   padding-right: 0px;
   padding-left: 0px;
 }
@@ -49,11 +61,18 @@ h2 {
   padding-right: 0px;
   color: white;
   background-color: #0B6294;
+  height: 52px;
   &:hover {
     color: #0B6294;
     background-color: white;
     border-radius: 0px;
   }
+}
+#sign-up-link {
+  margin-right: -15px;
+}
+#sign-out-link {
+  margin-right: -15px;
 }
 ul.nav-tabs > li > a {
   margin-right: 0px;
