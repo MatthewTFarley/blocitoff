@@ -22,5 +22,5 @@ $('document').ready(function(){
       $('.alert').remove();
     });
   }
-  setTimeout(clearFlashes, 3000);
+  setTimeout(clearFlashes, 5000);
 });
