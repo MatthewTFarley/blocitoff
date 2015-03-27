@@ -1,13 +1,7 @@
 <% if @task.valid? %>
   $('.js-tasks').append("<%= escape_javascript(render(@task)) %>");
-  $('.new-task').html("<%= escape_javascript(render partial: 'tasks/form', locals: { list: @list, task: @new_task }) %>");
+  $('.new-task').html("<%= escape_javascript(render partial: 'tasks/form', locals: { list: @list, task: Task.new }) %>");
 <% else flash[:error].present? %>
   $('#task-form-row').prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
-    function clearFlashes (){
-      $('.alert').fadeOut(function(){
-        $('.alert').remove();
-      });
-    }
-    setTimeout(clearFlashes, 5000);
-  <% flash[:error] = nil %>
+   clearFlashes();
 <% end %>

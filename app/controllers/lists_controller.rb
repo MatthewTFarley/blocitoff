@@ -6,10 +6,8 @@ class ListsController < ApplicationController
 
   def show
     @list = current_user.list
-    @tasks = nil
     
     if @list != nil && params[:id] == @list.id.to_s
-      @tasks = @list.tasks
       respond_with(@list)
     else
       redirect_to @list || new_list_path

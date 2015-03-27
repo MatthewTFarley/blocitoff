@@ -5,10 +5,9 @@ class TasksController < ApplicationController
     @list = current_user.list
     @task = Task.new(task_params)
     @task.list = @list
-    @new_task = Task.new
-
+   
     if !@task.save
-      flash[:error] = "There was an error saving the task. Please try again."
+      flash.now[:error] = "There was an error saving the task. Please try again."
     end
     
     respond_with(@task) do |format|

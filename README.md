@@ -1,6 +1,6 @@
 == README
 
-Blocitoff: A self-destructing to-do list application.
+Blocitoff: A to-do list application with timed removal of tasks to keep your agenda clutter free.
 
 by Matthew Farley
 
