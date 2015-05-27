@@ -22,7 +22,7 @@
             <span class="icon-bar" id="bar"></span>
           </button>
         </div>
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse nav-tabs" id="nav-options">
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="nav-options">
           <% if current_user && current_user.list %>
             <li><%= link_to "My List", current_user.list, class: "navbar-element" %></li>
           <% else %>
@@ -31,7 +31,7 @@
             <li><%= link_to "About", about_path, class: "navbar-element" %></li>
           <% if current_user %>
             <li><%= link_to "Profile", edit_user_registration_path, class: "navbar-element"  %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, id: "sign-out-link", class: "navbar-element" %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, id: "sign-out-link", class: "navbar-element" %></li>
           <% else %>
             <li><%= link_to "Sign In", new_user_session_path, id: "sign-in-link", class: "navbar-element" %></li>
             <li><%= link_to "Sign Up", new_user_registration_path, id: "sign-up-link", class: "navbar-element" %></li>
