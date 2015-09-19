@@ -84,12 +84,6 @@ ul.nav-tabs > li > a {
     border-radius: 0px;
     }
 }
-#content-container {
-  background: #0E74AF;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
-  width: auto;
-}
 #content-row {
   background: #0E74AF;
 }
@@ -111,10 +105,4 @@ ul.nav-tabs {
     border: solid FloralWhite 1px;
     background-color: FloralWhite;
   }
-}
-.row:before {
-  clear: none;
-}
-.row:after{
-  clear: none;
 }
