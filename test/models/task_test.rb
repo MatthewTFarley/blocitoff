@@ -27,4 +27,8 @@ class TaskTest < ActiveSupport::TestCase
     task = Task.create!(description: "Do a thing", created_at: 10.days.ago, list: @list)
     assert_equal(0, task.days_left)
   end
+
+  test "to_s should return the task description" do
+    assert_equal(@task.description, @task.to_s)
+  end
 end
