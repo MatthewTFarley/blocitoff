@@ -1,7 +1,7 @@
-== README
+## README
 
 Blocitoff: A to-do list application with timed removal of tasks to keep your agenda clutter free.
 
-by Matthew Farley
+by Matthew Farley via Bloc.io
 
-<tt>rake doc:app</tt>.
+See Blocitoff in action: https://mtfarley-blocitoff.herokuapp.com/
